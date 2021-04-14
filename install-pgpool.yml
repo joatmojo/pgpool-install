@@ -1,4 +1,17 @@
 ---
+- name: create postgre directory
+  hosts: nodeall
+  become: true
+
+  tasks:
+    - name: create /data/pgpool directory if it does not exist
+      ansible.builtin.file:
+        path: /data/pgpool
+        state: directory
+        owner: postgres
+        group: postgres
+        mode: '0755'
+
 - name: setting proxy and install pgpool
   hosts: nodeall
   become: true
@@ -15,3 +28,20 @@
         state: present
       environment: "{{ proxy_env }}"
 
+- name: copy pgpool.conf and restart pgpool
+  hosts: nodeall
+  become: true
+
+  tasks: 
+    - name: copy pgpool.conf
+      copy: 
+        src: ./files/pgpool.conf
+        dest: /etc/pgpool/pgpool.conf
+        owner: root
+        group: root
+        mode: 0620
+
+    - name: restart pgpool
+      service:
+        name: pgpool2
+        state: restarted
