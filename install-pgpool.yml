@@ -10,6 +10,8 @@
 
   tasks:
     - name: install pgpool
-      command: apt-get install -y pgpool2
+      apt:
+        name: pgpool2
+        state: present
       environment: "{{ proxy_env }}"
 
