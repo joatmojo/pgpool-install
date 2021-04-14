@@ -4,12 +4,7 @@
   become: true
 
   tasks:
-    - name: setting http_proxy
-      command: export http_proxy=http://192.168.131.254:3128
-
-    - name: setting https_proxy
-      command: export https_proxy=http://192.168.131.254:3128
-
     - name: install pgpool
       command: apt-get install -y pgpool2
+      environment: "{{ proxy_env }}"
 
