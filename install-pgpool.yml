@@ -41,7 +41,7 @@
         group: root
         mode: 0764
 
- tasks: 
+  tasks: 
     - name: copy pool_hba.conf
       copy: 
         src: ./files/pool_hba.conf
