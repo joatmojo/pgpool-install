@@ -41,7 +41,6 @@
         group: root
         mode: 0764
 
-  tasks: 
     - name: copy pool_hba.conf
       copy: 
         src: ./files/pool_hba.conf
@@ -49,6 +48,14 @@
         owner: root
         group: root
         mode: 0764        
+
+    - name: copy pool_hba.conf
+      copy: 
+        src: ./files/pool_hba.conf
+        dest: /etc/pgpool2/pool_hba.conf
+        owner: root
+        group: root
+        mode: 0644          
 
     - name: restart pgpool
       service:
