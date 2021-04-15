@@ -28,7 +28,7 @@
         state: present
       environment: "{{ proxy_env }}"
 
-- name: copy pgpool.conf and restart pgpool
+- name: copy pgpool.conf, pool_hba.conf and restart pgpool
   hosts: nodeall
   become: true
 
@@ -40,6 +40,15 @@
         owner: root
         group: root
         mode: 0764
+
+ tasks: 
+    - name: copy pool_hba.conf
+      copy: 
+        src: ./files/pool_hba.conf
+        dest: /etc/pgpool2/pool_hba.conf
+        owner: root
+        group: root
+        mode: 0764        
 
     - name: restart pgpool
       service:
