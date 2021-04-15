@@ -49,10 +49,10 @@
         group: root
         mode: 0764        
 
-    - name: copy pool_hba.conf
+    - name: copy pool_passwd
       copy: 
-        src: ./files/pool_hba.conf
-        dest: /etc/pgpool2/pool_hba.conf
+        src: ./files/pool_passwd
+        dest: /etc/pgpool2/pool_passwd
         owner: root
         group: root
         mode: 0644          
