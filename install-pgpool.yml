@@ -41,6 +41,14 @@
         group: root
         mode: 0764
 
+    - name: copy pcp.conf
+      copy: 
+        src: ./files/pcp.conf
+        dest: /etc/pgpool2/pcp.conf
+        owner: root
+        group: root
+        mode: 0764        
+
     - name: copy pool_hba.conf
       copy: 
         src: ./files/pool_hba.conf
