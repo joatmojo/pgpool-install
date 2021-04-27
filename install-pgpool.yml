@@ -55,9 +55,25 @@
         dest: /etc/pgpool2/pool_passwd
         owner: root
         group: root
-        mode: 0644          
+        mode: 0644
+
+    - name: copy pcppass config
+      copy:
+        src: ./files/pcppass
+        dest: /data/pgpool/pcppass
+        owner: root
+        group: root
+        mode: 0700
 
     - name: restart pgpool
       service:
         name: pgpool2
         state: restarted
+
+    - name: copy attach shell
+      copy:
+        src: ./files/pgpool_attach.sh
+        dest: /data/pgpool/pgpool_attach.sh
+        owner: root
+        group: root
+        mode: 0755          
