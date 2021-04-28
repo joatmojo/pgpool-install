@@ -28,7 +28,7 @@
         state: present
       environment: "{{ proxy_env }}"
 
-- name: copy pgpool.conf, pool_hba.conf and restart pgpool
+- name: copy pgpool.conf, pcp.conf and pool_hba pgpool
   hosts: nodeall
   become: true
 
