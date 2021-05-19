@@ -5,9 +5,3 @@ https_proxy=https://192.168.134.4:3128
 [nodeall]
 pgpool1
 pgpool2
-
-[pgpoolnode1]
-carita1
-
-[pgpoolnode2]
-carita2
